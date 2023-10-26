@@ -2,6 +2,10 @@ import numpy as np
 import math
 
 from .geometry import height_points
+
+###TODO 
+#1. fix points visible check: cos(angle berween visible line and segments vector ) less than alpha/2 
+
 def circle_line_segment_intersection(circle_center_x,
                                      circle_center_y,
                                      circle_radius,
