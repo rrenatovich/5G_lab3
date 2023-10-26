@@ -1,12 +1,9 @@
-import numpy as np
-import math
-from scipy.linalg import solve
-import matplotlib.pyplot as plt
-
-from .src.poison_point_process import poison_point_process
-from .src.geometry import gen_points_for_line, dist_two_points, height_points
 from .src.test import points_visible, circle_line_segment_intersection
-  
+from .src.poison_point import poison_point_process
+from .src.geometry import gen_points_for_line
+
+
+import math
 
 A = 100 # сторона квадратной области
 lmbd = 0.01 # плотность точечного Пуассоновского процесса
@@ -32,7 +29,7 @@ print("Число случаев, когда оба источника видя�
 print("Число проведенных экспериментов:",exp_counter)
 print("Эмпирическая вероятность видимости", round(visible_counter / exp_counter, 3))
 print("Теоретическая вероятность видимости", round((pow(alpha / 180 * math.pi, 2)) / (4 * pow(math.pi, 2)), 3))
-print("")
+print("*******************************************************************************************************")
 print("Число не блокировок и видимости друг друга:", unblock_counter)
 print("Число проведенных экспериментов:",exp_counter)
 print("Эмпирическая вероятность видимости и отсутсвия блокировки", round(unblock_counter / exp_counter, 3))
