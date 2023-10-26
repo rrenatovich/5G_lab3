@@ -12,14 +12,11 @@ def gen_points_for_line(A, dist):
   y2 = y1 + dist * np.sin(angl)
 
   counter = 0 
-  while flag_for_second_point == False and counter <= 20: # пока вторая точка не лежит внутри области
+  while flag_for_second_point == False and counter <= 100: # пока вторая точка не лежит внутри области
     counter += 1 
     if x2 < A and y2 < A and x2 > 0 and y2 > 0: # проверяем если вторая точка лежит внутри области
       flag_for_second_point = True # меняем значение флага
     else: # если вторая точка не лежит внутри области, то генерируем заново
-      if counter > 20:
-         Exception = ('Unable to resolve equation1')
-         return Exception
       angl = np.random.uniform(0, 2 * np.pi) # выбираем другой угол для линии прямой видимости
       x2 = x1 + dist * np.cos(angl) # генерируем новые координаты второй точки линии прямой видимости
       y2 = y1 + dist * np.sin(angl)
