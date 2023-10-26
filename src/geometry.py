@@ -3,7 +3,7 @@ from scipy.linalg import solve
 
 
 # функция для генерации линия внутри выбранной области со сторонами A
-def gen_points_for_line():
+def gen_points_for_line(A, dist):
   flag_for_second_point = False # определяем флаг для проверки лежит ли вторая точка вутри области
 
   angl = np.random.uniform(0, 2 * np.pi) # выбираем угол для линии прямой видимости

@@ -1,9 +1,8 @@
-from .src.test import points_visible, circle_line_segment_intersection
-from .src.poison_point import poison_point_process
-from .src.geometry import gen_points_for_line
-
-
 import math
+from src.test import points_visible, circle_line_segment_intersection
+from src.poison_point import poison_point_process
+from src.geometry import gen_points_for_line
+
 
 A = 100 # сторона квадратной области
 lmbd = 0.01 # плотность точечного Пуассоновского процесса
@@ -17,7 +16,7 @@ exp_counter = 0 # счетчик количества экспериментов
 
 while unblock_counter < 1000: # пока не достигнуто нужное количество блокировок
   x, y = poison_point_process(lmbd, A)
-  x1, y1, x2, y2 = gen_points_for_line() # генерируем точки линии прямой видимости
+  x1, y1, x2, y2 = gen_points_for_line(A, dist) # генерируем точки линии прямой видимости
   if points_visible(x1, y1, alpha) and points_visible(x2, y2, alpha): # проверяем на видимость
     visible_counter += 1 # если видят друг друга
     if circle_line_segment_intersection(x, y, radius, x1, y1, x2, y2) == False:
