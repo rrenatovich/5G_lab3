@@ -54,8 +54,8 @@ for j in range (3):
     dist = 20 # расстояние между двумя точками
     alpha = random.randint(1,180) # угол области видимости точек
 
-    visible_counter = 0 # счетчик количества блокировок
-    unblock_counter = 0 # счетчик количества блокировок
+    visible_counter = 0 # счетчики количества блокировок
+    unblock_counter = 0 
     exp_counter = 0 # счетчик количества экспериментов
     while unblock_counter < 1000: # пока не достигнуто нужное количество блокировок
       try:
