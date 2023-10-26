@@ -40,8 +40,8 @@ def circle_line_segment_intersection(circle_center_x,
 
 # фкнция для проверки того, что одна точка попадает в область видимости второй
 def points_visible(x, y, alpha):
-  # gamma_angle - угол направления диаграммы направленности
-  # alpha - угол области видимости точек диаграммы направленности
+  # gamma_angle - угол диаграммы направленности
+  # alpha - угол области видимости (сектор)
   gamma_angle = np.random.uniform(0, 2 * np.pi)
   gamma_x, gamma_y = np.cos(gamma_angle), np.sin(gamma_angle) # координаты вектора направленности
 

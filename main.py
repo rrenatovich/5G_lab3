@@ -14,11 +14,11 @@ logger_controller = LogController()
 output_path = 'logs'
 logger_controller.initialize(output_path, 'output'+ time_string +  '.log', logging.INFO)
 
-A = 100 # сторона квадратной области
+A = 50 # сторона квадратной области
 lmbd = 0.01 # плотность точечного Пуассоновского процесса
 radius = 2 # радиус окружности объекта, размещенного внутри квадратной области
 dist = 20 # расстояние между двумя точками
-alpha = 90 # угол области видимости точек
+alpha = 30 # угол области видимости точек
 
 visible_counter = 0 # счетчик количества блокировок
 unblock_counter = 0 # счетчик количества блокировок
@@ -61,7 +61,7 @@ for j in range (3):
       try:
         x, y = poison_point_process(lmbd, A)
         x1, y1, x2, y2 = gen_points_for_line(A, dist) # генерируем точки линии прямой видимости
-        if points_visible(x1, y1, alpha) and points_visible(x2, y2, alpha): # проверяем на видимость
+        if points_visible(x1-x2, y1-y2, alpha) and points_visible(x2-x1, y2-y1, alpha): # проверяем на видимость
           visible_counter += 1 # если видят друг друга
         if circle_line_segment_intersection(x, y, radius, x1, y1, x2, y2) == False:
           unblock_counter += 1 # если блокировки нет
